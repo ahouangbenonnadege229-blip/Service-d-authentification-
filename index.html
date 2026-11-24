@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10233f">
+<title>Portail indépendant — Dépôt de reçu</title>
+<style>
+:root{--navy:#10233f;--blue:#1b3b60;--gold:#d6ad62;--ink:#17243a;--muted:#64748b;--line:#e5eaf1;--bg:#f4f7fb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:linear-gradient(120deg,var(--navy),var(--blue));color:white;padding:22px 18px 65px}
+.nav,.hero,main{max-width:1050px;margin:auto}.brand{font-weight:800;letter-spacing:.04em}.mark{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid #ffffff66;border-radius:12px;color:var(--gold);margin-right:10px}
+.hero{padding-top:42px}.eyebrow{color:#f0d49f;text-transform:uppercase;letter-spacing:.15em;font-size:11px;font-weight:800}
+h1{font-size:clamp(28px,5vw,43px);line-height:1.12;max-width:700px;margin:12px 0} .hero p{color:#dce5f1;max-width:650px}
+main{padding:0 18px;margin-top:-36px;display:grid;grid-template-columns:1.5fr .8fr;gap:20px;align-items:start}
+.card{background:white;border:1px solid var(--line);border-radius:18px;padding:25px;box-shadow:0 14px 40px #10233f0d}
+h2{font-size:21px;color:var(--navy);margin:0 0 6px}.sub,.hint{color:var(--muted)}.sub{font-size:14px;margin:0 0 20px}
+label{display:block;font-size:13px;font-weight:700;margin:16px 0 7px}input{width:100%;border:1px solid #d8e0ea;border-radius:10px;padding:13px;font:inherit}
+input:focus{outline:2px solid #b8cbe0}.hint{font-size:12px;margin:6px 0}
+.upload{border:1.5px dashed #b9c7d8;border-radius:12px;padding:16px;text-align:center;background:#f9fbfd}
+.preview{display:none;max-width:100%;max-height:250px;object-fit:contain;margin:12px auto 0;border-radius:10px}
+button{border:0;border-radius:10px;padding:14px 18px;font-weight:750;cursor:pointer}.primary{width:100%;margin-top:20px;background:var(--navy);color:white}
+.pill{display:inline-block;background:#eef5f2;color:#147d58;padding:5px 9px;border-radius:30px;font-size:11px;font-weight:800}
+.notice,.result{padding:13px;border-radius:10px;margin-top:16px;font-size:12px}.notice{background:#f5f7fa;color:#65748a}
+.result{display:none;background:#f1faf5;border:1px solid #b9dfcf;color:#175d43}.ref{font:700 18px ui-monospace,monospace}
+.step{display:flex;gap:12px;margin-top:16px}.num{width:28px;height:28px;flex:0 0 28px;border-radius:9px;background:#edf2f8;color:var(--navy);display:grid;place-items:center;font-weight:800}.step p{font-size:13px;color:var(--muted);margin:2px 0}
+footer{text-align:center;color:#718096;font-size:12px;padding:30px 18px}
+@media(max-width:740px){main{grid-template-columns:1fr}.card{padding:20px}.hero{padding-top:32px}}
+</style></head>
+<body>
+<header><div class="nav"><div class="brand"><span class="mark">T</span>TRANSCASH · PORTAIL INDÉPENDANT</div></div>
+<section class="hero"><div class="eyebrow">Espace de dépôt de demande</div><h1>Soumettez votre reçu pour examen manuel</h1><p>Transmettez vos coordonnées et une photo lisible de votre reçu. Une demande ne constitue pas une confirmation d'authenticité.</p></section></header>
+<main>
+<section class="card"><span class="pill">Formulaire de demande</span><h2 style="margin-top:12px">Déposer un reçu</h2><p class="sub">Complétez les informations ci-dessous.</p>
+<form id="form">
+<label for="name">Nom et prénom</label><input id="name" autocomplete="name" placeholder="Ex. : Jean Dupont" required>
+<label for="phone">Numéro de téléphone</label><input id="phone" type="tel" autocomplete="tel" placeholder="+33 6 12 34 56 78" required><p class="hint">Format international avec indicatif du pays.</p>
+<label for="photo">Photo du ticket ou du reçu</label><div class="upload"><strong>Ajouter une photo</strong><p class="hint">JPEG, PNG ou WEBP — 8 Mo maximum</p><input id="photo" type="file" accept="image/jpeg,image/png,image/webp" capture="environment" required><img id="preview" class="preview" alt="Aperçu de la photo"></div>
+<p class="hint">La référence, la date et l'heure doivent être lisibles. Masquez tout code secret ou code de recharge.</p>
+<button class="primary" type="submit">Préparer ma demande</button></form>
+<div class="result" id="result"><strong>Référence de démonstration créée sur cet appareil :</strong><p class="ref" id="ref"></p><p>Aucune demande ni photo n'a été envoyée ou enregistrée sur un serveur. Cette page est une maquette HTML.</p></div>
+<div class="notice"><b>Sécurité :</b> ne saisissez jamais de PIN, mot de passe, code secret ou code de recharge. Ce portail est indépendant et n'est pas le site officiel de Transcash.</div>
+</section>
+<aside>
+<section class="card"><h2>Comment ça marche ?</h2>
+<div class="step"><span class="num">1</span><div><b>Renseignez vos coordonnées</b><p>Indiquez votre nom et un numéro joignable.</p></div></div>
+<div class="step"><span class="num">2</span><div><b>Ajoutez une photo lisible</b><p>Vérifiez le cadrage avant de poursuivre.</p></div></div>
+<div class="step"><span class="num">3</span><div><b>Attendez l'examen manuel</b><p>La soumission ne signifie pas que le ticket est authentifié.</p></div></div>
+</section>
+<section class="card" style="margin-top:18px"><h2>À savoir</h2><p class="sub" style="margin:8px 0 0">Cette version est une interface front-end autonome. Pour recevoir réellement les demandes, conserver les photos en privé, assurer le suivi et fournir un espace administrateur sécurisé, un backend et un stockage privé sont indispensables.</p></section>
+</aside></main>
+<footer>Portail indépendant · Aucune affiliation officielle avec Transcash · Ne transmettez jamais vos codes secrets.</footer>
+<script>
+const photo=document.getElementById('photo'),preview=document.getElementById('preview');
+photo.addEventListener('change',()=>{const f=photo.files[0];preview.style.display='none';if(!f)return;if(!['image/jpeg','image/png','image/webp'].includes(f.type)){alert('Format non accepté. Choisissez JPEG, PNG ou WEBP.');photo.value='';return;}if(f.size>8*1024*1024){alert('La photo dépasse 8 Mo.');photo.value='';return;}preview.src=URL.createObjectURL(f);preview.style.display='block';});
+document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();const p=document.getElementById('phone').value.trim().replace(/[ ()-]/g,'');if(!/^\+[1-9]\d{7,14}$/.test(p)){alert('Saisissez un numéro international valide, par exemple +33 6 12 34 56 78.');return;}document.getElementById('ref').textContent='TC-'+Date.now().toString().slice(-8);document.getElementById('result').style.display='block';document.getElementById('result').scrollIntoView({behavior:'smooth'});});
+</script></body></html>
